@@ -45,7 +45,8 @@
 			<div class="account-content">
 				<div class="login-wrapper bg-img">
                     <div class="login-content authent-content">
-                        <form action="https://dreamspos.dreamstechnologies.com/html/template/index.html">
+                        <form action="{{ route('login.authenticate') }}" method="POST">
+                            @csrf
                             <div class="login-userset">
                                 <div class="login-logo logo-normal">
                                    <img src="assets/img/logo.svg" alt="img">
@@ -60,7 +61,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Email <span class="text-danger"> *</span></label>
                                     <div class="input-group">
-                                        <input type="text" value="" class="form-control border-end-0">
+                                        <input type="text" value="" name="email" class="form-control border-end-0">
                                         <span class="input-group-text border-start-0">
                                             <i class="ti ti-mail"></i>
                                         </span>
@@ -69,7 +70,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Password <span class="text-danger"> *</span></label>
                                     <div class="pass-group">
-                                        <input type="password" class="pass-input form-control">
+                                        <input type="password" name="password" class="pass-input form-control">
                                         <span class="ti toggle-password ti-eye-off text-gray-9"></span>
                                     </div>
                                 </div>

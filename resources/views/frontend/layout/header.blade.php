@@ -511,7 +511,7 @@
 							<h6 class="submenu-hdr">Main</h6>
 							<ul>
 								<li class="submenu">
-									<a href="{{ route('home') }}" class="subdrop active"><i class="ti ti-layout-grid fs-16 me-2"></i><span>Dashboard</span></a>
+									<a href="{{ route('dashboard') }}" class="subdrop active"><i class="ti ti-layout-grid fs-16 me-2"></i><span>Dashboard</span></a>
 									<ul>
 										{{-- <li><a href="index.html" class="active">Admin Dashboard</a></li>
 										<li><a href="admin-dashboard.html">Admin Dashboard 2</a></li>
