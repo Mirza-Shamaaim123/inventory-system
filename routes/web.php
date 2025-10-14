@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AccountController::class, 'login'])->name('login');
 Route::post('/authenticate', [AccountController::class, 'authenticate'])->name('login.authenticate');
 Route::get('/register', [AccountController::class, 'register'])->name('register');
+Route::get('/profile', [AccountController::class, 'profile'])->name('account.profile');
 Route::post('/registration', [AccountController::class, 'registration'])->name('registration');
 Route::get('/dashboard', [FrontendController::class, 'index'])->name('dashboard');
 Route::get('/product', [FrontendController::class, 'product'])->name('home.product');

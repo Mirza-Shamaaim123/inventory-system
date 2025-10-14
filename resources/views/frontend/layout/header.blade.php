@@ -406,7 +406,7 @@
 									<p>Admin</p>
 								</div>
 							</div>
-							<a class="dropdown-item" href="profile.html"><i class="ti ti-user-circle me-2"></i>MyProfile</a>
+							<a class="dropdown-item" href="{{ route('account.profile') }}"><i class="ti ti-user-circle me-2"></i>MyProfile</a>
 							<a class="dropdown-item" href="sales-report.html"><i class="ti ti-file-text me-2"></i>Reports</a>
 							<a class="dropdown-item" href="general-settings.html"><i class="ti ti-settings-2 me-2"></i>Settings</a>
 							<hr class="my-2">
@@ -1439,7 +1439,7 @@
 						<li class="submenu">
 							<a href="javascript:void(0);"><i class="ti ti-page-break fs-16 me-2"></i><span>Pages</span> <span class="menu-arrow"></span></a>
 							<ul>
-								<li><a href="profile.html"><span>Profile</span></a></li>
+								<li><a href="{{ route('account.profile') }}"><span>Profile</span></a></li>
 								<li class="submenu">
 									<a href="javascript:void(0);"><span>Authentication</span><span class="menu-arrow"></span></a>
 									<ul>
