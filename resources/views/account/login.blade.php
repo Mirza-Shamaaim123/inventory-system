@@ -36,9 +36,9 @@
     </head>
     <body class="account-page">
 
-        <div id="global-loader" >
+        {{-- <div id="global-loader" >
 			<div class="whirly-loader"> </div>
-		</div>
+		</div> --}}
 
 		<!-- Main Wrapper -->
         <div class="main-wrapper">
@@ -92,7 +92,7 @@
                                    <button type="submit" class="btn btn-primary w-100">Sign In</button>
                                </div>
                                <div class="signinform">
-                                   <h4>New on our platform?<a href="register.html" class="hover-a"> Create an account</a></h4>
+                                   <h4>New on our platform?<a href="{{ route('register') }}" class="hover-a"> Create an account</a></h4>
                                </div>
                                <div class="form-setlogin or-text">
                                    <h4>OR</h4>

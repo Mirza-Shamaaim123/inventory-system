@@ -1,12 +1,14 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
 //     return view('frontend.index');
 // });
-Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('/', [AccountController::class, 'login'])->name('login');
+Route::get('/register', [AccountController::class, 'register'])->name('register');
 Route::get('/dashboard', [FrontendController::class, 'index'])->name('home');
 Route::get('/product', [FrontendController::class, 'product'])->name('home.product');
 Route::get('/add-product', [FrontendController::class, 'addproduct'])->name('add.product');
