@@ -72,7 +72,7 @@ class AccountController extends Controller
 
     public function update(Request $request)
     {
-        $user = User::first(); // ya auth()->user();
+        $user = Auth::user();
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -82,6 +82,15 @@ class AccountController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->phone_number = $request->phone_number;
+        $user->image = $request->image;
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('profile_images', 'public');
+            $user->image = $path;
+        }
+
+
 
         if ($request->password) {
             $user->password = bcrypt($request->password);
