@@ -27,4 +27,10 @@ class FrontendController extends Controller
     public function stock(){
         return view('frontend.stock-list');
     }
+    public function manager(){
+        return view('frontend.manger.dashboard');
+    }
+    public function saleman(){
+        return view('frontend.saleman.dashboard');
+    }
 }

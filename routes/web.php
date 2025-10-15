@@ -18,3 +18,5 @@ Route::get('/product', [FrontendController::class, 'product'])->name('home.produ
 Route::get('/add-product', [FrontendController::class, 'addproduct'])->name('add.product');
 Route::get('/expired-product', [FrontendController::class, 'expiredproduct'])->name('expired.product');
 Route::get('/stock', [FrontendController::class, 'stock'])->name('stock.page');
+Route::get('/manger', [FrontendController::class, 'manager'])->name('manger.dashboard');
+Route::get('/saleman', [FrontendController::class, 'saleman'])->name('saleman.dashboard');

@@ -41,12 +41,26 @@ class AccountController extends Controller
 
 
 
-    public function authenticate()
+    public function authenticate(Request $request)
     {
         $validator = Validator::make(request()->all(), [
             'email' => 'required|email',
             'password' => 'required',
         ]);
+
+        if($validator->passes()){
+            if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+                $user = Auth::user();
+                if($user->role=='manager'){
+                     return redirect()->route('manger.dashboard'); 
+                }else if($user->role=='salesman'){
+                    return redirect()->route('saleman.dashboard');    
+                }else{
+                    return redirect()->route('dashboard');
+                }
+
+            }
+        }
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
