@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class BrandController extends Controller
 {
@@ -28,5 +30,35 @@ class BrandController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Brand added successfully!');
+    }
+
+    public function update(Request $request)
+    {
+        $brand = Brand::findOrFail($request->id);
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Update name & status
+        $brand->name = $request->name;
+        $brand->status = $request->has('status') ? 'active' : 'inactive';
+
+        // Update logo if new file uploaded
+        if ($request->hasFile('logo')) {
+            if ($brand->logo && Storage::disk('public')->exists($brand->logo)) {
+                Storage::disk('public')->delete($brand->logo);
+            }
+            $brand->logo = $request->file('logo')->store('brands', 'public');
+        }
+        if (!$request->hasFile('logo') && empty($request->logo)) {
+            $brand->logo = null;
+        }
+
+
+        $brand->save();
+
+        return redirect()->back()->with('success', 'Brand updated successfully!');
     }
 }

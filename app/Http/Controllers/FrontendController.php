@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -39,7 +40,8 @@ class FrontendController extends Controller
         return view('frontend.category-list', compact('categories'));
     }
     public function brand(){
-        return view('frontend.brand-list');
+          $brands = Brand::latest()->get();
+        return view('frontend.brand-list', compact('brands'));
     }
 }
 

@@ -11,8 +11,8 @@
                 </div>
                 <ul class="table-top-head">
                     <li>
-                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Pdf"><img src="{{ asset('assets/img/icons/pdf.svg') }}"
-                                alt="img"></a>
+                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Pdf"><img
+                                src="{{ asset('assets/img/icons/pdf.svg') }}" alt="img"></a>
                     </li>
                     <li>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Excel"><img
@@ -93,336 +93,54 @@
                                     <th class="no-sort"></th>
                                 </tr>
                             </thead>
+
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <a href="javascript:void(0);" class="avatar avatar-md bg-light-900 p-1 me-2">
-                                                <img class="object-fit-contain" src="{{ asset('assets/img/brand/lenova.png') }}"
-                                                    alt="img">
-                                            </a>
-                                            <a href="javascript:void(0);">Lenovo</a>
-                                        </div>
-                                    </td>
-                                    <td>24 Dec 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span>
-                                    </td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-brand">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
+                                @foreach ($brands as $brand)
+                                    <tr>
+                                        <td>
+                                            <label class="checkboxs">
+                                                <input type="checkbox">
+                                                <span class="checkmarks"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <a href="javascript:void(0);"
+                                                    class="avatar avatar-md bg-light-900 p-1 me-2">
+                                                    <img class="object-fit-contain"
+                                                        src="{{ $brand->logo ? asset('storage/' . $brand->logo) : asset('assets/img/no-image.png') }}"
+                                                        alt="{{ $brand->name }}">
+                                                </a>
+                                                <a href="javascript:void(0);">{{ $brand->name }}</a>
+                                            </div>
+                                        </td>
+                                        <td>{{ $brand->created_at->format('d M Y') }}</td>
+                                        <td>
+                                            @if ($brand->status === 'active')
+                                                <span class="badge table-badge bg-success fw-medium fs-10">Active</span>
+                                            @else
+                                                <span class="badge table-badge bg-danger fw-medium fs-10">Inactive</span>
+                                            @endif
+                                        </td>
+                                        <td class="action-table-data">
+                                            <div class="edit-delete-action">
+                                                <a href="#" class="me-2 p-2 editBrandBtn" data-bs-toggle="modal"
+                                                    data-bs-target="#edit-brand" data-id="{{ $brand->id }}"
+                                                    data-name="{{ $brand->name }}"
+                                                    data-logo="{{ asset('storage/' . $brand->logo) }}"
+                                                    data-status="{{ $brand->status }}">
+                                                    <i data-feather="edit" class="feather-edit"></i>
+                                                </a>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <a href="javascript:void(0);" class="avatar avatar-md bg-light-900 p-1 me-2">
-                                                <img class="object-fit-contain" src="{{ asset('assets/img/brand/beats.png') }}"
-                                                    alt="img">
-                                            </a>
-                                            <a href="javascript:void(0);">Beats</a>
-                                        </div>
-                                    </td>
-                                    <td>10 Dec 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span>
-                                    </td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-brand">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <a href="javascript:void(0);" class="avatar avatar-md bg-light-900 p-1 me-2">
-                                                <img class="object-fit-contain" src="{{ asset('assets/img/brand/nike.png') }}"
-                                                    alt="img">
-                                            </a>
-                                            <a href="javascript:void(0);">Nike</a>
-                                        </div>
-                                    </td>
-                                    <td>27 Nov 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span>
-                                    </td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-brand">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <a href="javascript:void(0);" class="avatar avatar-md bg-light-900 p-1 me-2">
-                                                <img class="object-fit-contain" src="{{ asset('assets/img/brand/apple.png') }}"
-                                                    alt="img">
-                                            </a>
-                                            <a href="javascript:void(0);">Apple</a>
-                                        </div>
-                                    </td>
-                                    <td>18 Nov 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span>
-                                    </td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-brand">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <a href="javascript:void(0);" class="avatar avatar-md bg-light-900 p-1 me-2">
-                                                <img class="object-fit-contain" src="assets/img/brand/amazon.png"
-                                                    alt="img">
-                                            </a>
-                                            <a href="javascript:void(0);">Amazon</a>
-                                        </div>
-                                    </td>
-                                    <td>06 Nov 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span>
-                                    </td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-brand">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <a href="javascript:void(0);" class="avatar avatar-md bg-light-900 p-1 me-2">
-                                                <img class="object-fit-contain" src="assets/img/brand/woodmart.png"
-                                                    alt="img">
-                                            </a>
-                                            <a href="javascript:void(0);">Woodmart</a>
-                                        </div>
-                                    </td>
-                                    <td>25 Oct 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span>
-                                    </td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-brand">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <a href="javascript:void(0);" class="avatar avatar-md bg-light-900 p-1 me-2">
-                                                <img class="object-fit-contain" src="assets/img/brand/dior.png"
-                                                    alt="img">
-                                            </a>
-                                            <a href="javascript:void(0);">Dior</a>
-                                        </div>
-                                    </td>
-                                    <td>14 Oct 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span>
-                                    </td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-brand">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <a href="javascript:void(0);" class="avatar avatar-md bg-light-900 p-1 me-2">
-                                                <img class="object-fit-contain" src="assets/img/brand/lava.png"
-                                                    alt="img">
-                                            </a>
-                                            <a href="javascript:void(0);">Lava</a>
-                                        </div>
-                                    </td>
-                                    <td>03 Oct 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span>
-                                    </td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-brand">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <a href="javascript:void(0);" class="avatar avatar-md bg-light-900 p-1 me-2">
-                                                <img class="object-fit-contain" src="assets/img/brand/nilkamal.png"
-                                                    alt="img">
-                                            </a>
-                                            <a href="javascript:void(0);">Nilkamal</a>
-                                        </div>
-                                    </td>
-                                    <td>20 Sep 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span>
-                                    </td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-brand">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <a href="javascript:void(0);" class="avatar avatar-md bg-light-900 p-1 me-2">
-                                                <img class="object-fit-contain" src="assets/img/brand/the-north-force.png"
-                                                    alt="img">
-                                            </a>
-                                            <a href="javascript:void(0);">The North Face</a>
-                                        </div>
-                                    </td>
-                                    <td>10 Sep 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span>
-                                    </td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-brand">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                                <a data-bs-toggle="modal" data-bs-target="#delete-modal"
+                                                    data-id="{{ $brand->id }}" class="p-2"
+                                                    href="javascript:void(0);">
+                                                    <i data-feather="trash-2" class="feather-trash-2"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -503,17 +221,24 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="https://dreamspos.dreamstechnologies.com/html/template/brand-list.html">
+                <form action="{{ route('brand.update') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="id" id="edit_id">
+
                     <div class="modal-body new-employee-field">
                         <div class="profile-pic-upload mb-3">
                             <div class="profile-pic brand-pic">
-                                <span><img src="assets/img/brand/brand-icon-02.png" alt="Img"></span>
-                                <a href="javascript:void(0);" class="remove-photo"><i data-feather="x"
-                                        class="x-square-add"></i></a>
+                                <span>
+                                    <img id="edit_logo_preview" src="" alt="Logo Preview"
+                                        style="display:none; width:100px; height:100px; object-fit:contain;">
+                                </span>
+                                <a href="javascript:void(0);" id="remove_logo" class="remove-photo">
+                                    <i data-feather="x" class="x-square-add"></i>
+                                </a>
                             </div>
                             <div>
                                 <div class="image-upload mb-0">
-                                    <input type="file">
+                                    <input type="file" name="logo" id="edit_logo_input">
                                     <div class="image-uploads">
                                         <h4>Change Image</h4>
                                     </div>
@@ -521,23 +246,27 @@
                                 <p class="mt-2">JPEG, PNG up to 2 MB</p>
                             </div>
                         </div>
+
                         <div class="mb-3">
                             <label class="form-label">Brand<span class="text-danger ms-1">*</span></label>
-                            <input type="text" class="form-control" value="Lenovo">
+                            <input type="text" name="name" id="edit_name" class="form-control">
                         </div>
+
                         <div class="mb-0">
                             <div class="status-toggle modal-status d-flex justify-content-between align-items-center">
                                 <span class="status-label">Status</span>
-                                <input type="checkbox" id="user4" class="check" checked="">
-                                <label for="user4" class="checktoggle"></label>
+                                <input type="checkbox" id="edit_status" name="status" class="check">
+                                <label for="edit_status" class="checktoggle"></label>
                             </div>
                         </div>
                     </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn me-2 btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
@@ -563,4 +292,49 @@
             </div>
         </div>
     </div>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Jab koi edit button click ho
+            document.querySelectorAll('.editBrandBtn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Hidden ID
+                    const idInput = document.getElementById('edit_id');
+                    const nameInput = document.getElementById('edit_name');
+                    const statusInput = document.getElementById('edit_status');
+                    const logoPreview = document.getElementById('edit_logo_preview');
+
+                    if (idInput) idInput.value = this.dataset.id || '';
+                    if (nameInput) nameInput.value = this.dataset.name || '';
+                    if (statusInput) statusInput.checked = this.dataset.status === 'active';
+
+                    if (logoPreview) {
+                        if (this.dataset.logo && this.dataset.logo.trim() !== '') {
+                            logoPreview.src = this.dataset.logo;
+                            logoPreview.style.display = 'block';
+                        } else {
+                            logoPreview.style.display = 'none';
+                        }
+                    }
+                });
+            });
+
+            // Remove image (cross button)
+            const removeBtn = document.getElementById('remove_logo');
+            if (removeBtn) {
+                removeBtn.addEventListener('click', function() {
+                    const logoPreview = document.getElementById('edit_logo_preview');
+                    const logoInput = document.getElementById('edit_logo_input');
+                    if (logoPreview) {
+                        logoPreview.src = '';
+                        logoPreview.style.display = 'none';
+                    }
+                    if (logoInput) logoInput.value = '';
+                });
+            }
+        });
+    </script>
 @endsection
