@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -34,7 +35,8 @@ class FrontendController extends Controller
         return view('frontend.saleman.dashboard');
     }
     public function category(){
-        return view('frontend.category-list');
+        $categories = Category::orderBy('id', 'desc')->get();
+        return view('frontend.category-list', compact('categories'));
     }
 }
 
