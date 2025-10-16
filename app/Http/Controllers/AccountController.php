@@ -92,6 +92,7 @@ class AccountController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email',
             'password' => 'nullable|min:6',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // 2048 KB = 2 MB
         ]);
 
         $user->name = $request->name;
@@ -113,5 +114,10 @@ class AccountController extends Controller
         $user->save();
 
         return redirect()->route('account.profile')->with('success', 'Profile updated successfully!');
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

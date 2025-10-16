@@ -139,14 +139,16 @@
                         {{-- Profile Image --}}
                         <div class="profile-pic-upload image-field mb-3">
                             <div class="profile-pic p-2">
-                                <img src="{{ $user->image ? asset('storage/' . $user->image) : asset('assets/img/users/user-49.png') }}"
+                                <img id="profilePreview"
+                                    src="{{ $user->image ? asset('storage/' . $user->image) : asset('assets/img/users/user-49.png') }}"
                                     class="object-fit-cover h-100 rounded-1" alt="user">
                             </div>
 
                             <div class="mb-3">
                                 <div class="image-upload mb-0 d-inline-flex">
-                                    <input type="file" name="image" id="imageInput" disabled>
-                                    <div class="btn btn-primary fs-13 disabled-btn">Change Image</div>
+                                    <input type="file" name="image" id="imageInput" accept="image/*" disabled
+                                        style="display: none;">
+                                    <div class="btn btn-primary fs-13 disabled-btn" id="changeImageBtn">Change Image</div>
                                 </div>
                                 <p class="mt-2">Upload an image below 2 MB (JPG, PNG)</p>
                             </div>
@@ -202,6 +204,8 @@
                                     Profile</button>
                                 <button type="submit" id="saveBtn" class="btn btn-success shadow-none d-none">Save
                                     Changes</button>
+                                <button type="button" id="cancelBtn"
+                                    class="btn btn-secondary shadow-none d-none ms-2">Cancel</button>
                             </div>
                         </div>
                     </form>
@@ -223,6 +227,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const editBtn = document.getElementById('editBtn');
             const saveBtn = document.getElementById('saveBtn');
+            const cancelBtn = document.getElementById('cancelBtn');
             const form = document.getElementById('profileForm');
             const inputs = document.querySelectorAll('#profileForm input');
             const imageBtn = document.querySelector('.image-upload .btn');
@@ -240,6 +245,21 @@
                 imageBtn.classList.remove('disabled-btn');
                 editBtn.classList.add('d-none');
                 saveBtn.classList.remove('d-none');
+                cancelBtn.classList.remove('d-none');
+            });
+
+            // Cancel button click
+            cancelBtn.addEventListener('click', function() {
+                // Reset input values to original
+                inputs.forEach(input => {
+                    input.value = originalData[input.name] || '';
+                    input.disabled = true;
+                });
+                document.getElementById('imageInput').disabled = true;
+                imageBtn.classList.add('disabled-btn');
+                editBtn.classList.remove('d-none');
+                saveBtn.classList.add('d-none');
+                cancelBtn.classList.add('d-none');
             });
 
             // Form submit (detect changes)
@@ -258,6 +278,33 @@
                 if (!changed) {
                     e.preventDefault();
                     location.reload(); // refresh karega
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const changeBtn = document.getElementById('changeImageBtn');
+            const inputFile = document.getElementById('imageInput');
+            const previewImg = document.getElementById('profilePreview');
+
+            // When user clicks the button → open file input
+            changeBtn.addEventListener('click', function() {
+                if (!changeBtn.classList.contains('disabled-btn')) {
+                    inputFile.click();
+                }
+            });
+
+            // When image is selected → show preview instantly
+            inputFile.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImg.src = e.target.result; // preview new image
+                    }
+                    reader.readAsDataURL(file);
                 }
             });
         });

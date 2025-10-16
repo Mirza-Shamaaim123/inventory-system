@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('frontend.index');
 // });
 Route::get('/', [AccountController::class, 'login'])->name('login');
+Route::post('/logout', [AccountController::class, 'logout'])->name('logout');
 Route::post('/authenticate', [AccountController::class, 'authenticate'])->name('login.authenticate');
 Route::get('/register', [AccountController::class, 'register'])->name('register');
 Route::get('/profile', [AccountController::class, 'profile'])->name('account.profile');

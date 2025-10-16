@@ -34,3 +34,7 @@ class FrontendController extends Controller
         return view('frontend.saleman.dashboard');
     }
 }
+
+
+// <h6 class="fw-medium">{{ Auth::user()->name }}</h6>
+                                    // <p>{{ ucfirst(Auth::user()->role) }}</p>
