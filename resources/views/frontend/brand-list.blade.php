@@ -11,12 +11,12 @@
                 </div>
                 <ul class="table-top-head">
                     <li>
-                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Pdf"><img src="assets/img/icons/pdf.svg"
+                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Pdf"><img src="{{ asset('assets/img/icons/pdf.svg') }}"
                                 alt="img"></a>
                     </li>
                     <li>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Excel"><img
-                                src="assets/img/icons/excel.svg" alt="img"></a>
+                                src="{{ asset('assets/img/icons/excel.svg') }}" alt="img"></a>
                     </li>
                     <li>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Refresh"><i
@@ -104,7 +104,7 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <a href="javascript:void(0);" class="avatar avatar-md bg-light-900 p-1 me-2">
-                                                <img class="object-fit-contain" src="assets/img/brand/lenova.png"
+                                                <img class="object-fit-contain" src="{{ asset('assets/img/brand/lenova.png') }}"
                                                     alt="img">
                                             </a>
                                             <a href="javascript:void(0);">Lenovo</a>
@@ -137,7 +137,7 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <a href="javascript:void(0);" class="avatar avatar-md bg-light-900 p-1 me-2">
-                                                <img class="object-fit-contain" src="assets/img/brand/beats.png"
+                                                <img class="object-fit-contain" src="{{ asset('assets/img/brand/beats.png') }}"
                                                     alt="img">
                                             </a>
                                             <a href="javascript:void(0);">Beats</a>
@@ -170,7 +170,7 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <a href="javascript:void(0);" class="avatar avatar-md bg-light-900 p-1 me-2">
-                                                <img class="object-fit-contain" src="assets/img/brand/nike.png"
+                                                <img class="object-fit-contain" src="{{ asset('assets/img/brand/nike.png') }}"
                                                     alt="img">
                                             </a>
                                             <a href="javascript:void(0);">Nike</a>
@@ -203,7 +203,7 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <a href="javascript:void(0);" class="avatar avatar-md bg-light-900 p-1 me-2">
-                                                <img class="object-fit-contain" src="assets/img/brand/apple.png"
+                                                <img class="object-fit-contain" src="{{ asset('assets/img/brand/apple.png') }}"
                                                     alt="img">
                                             </a>
                                             <a href="javascript:void(0);">Apple</a>
@@ -451,7 +451,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="https://dreamspos.dreamstechnologies.com/html/template/brand-list.html">
+                <form action="{{ route('brand.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="modal-body new-employee-field">
                         <div class="profile-pic-upload mb-3">
                             <div class="profile-pic brand-pic">
@@ -459,7 +460,7 @@
                             </div>
                             <div>
                                 <div class="image-upload mb-0">
-                                    <input type="file">
+                                    <input type="file" name="logo">
                                     <div class="image-uploads">
                                         <h4>Upload Image</h4>
                                     </div>
@@ -469,12 +470,12 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Brand<span class="text-danger ms-1">*</span></label>
-                            <input type="text" class="form-control">
+                            <input type="text" name="name" class="form-control">
                         </div>
                         <div class="mb-0">
                             <div class="status-toggle modal-status d-flex justify-content-between align-items-center">
                                 <span class="status-label">Status</span>
-                                <input type="checkbox" id="user2" class="check" checked="">
+                                <input type="checkbox" name="status" id="user2" class="check" checked="">
                                 <label for="user2" class="checktoggle"></label>
                             </div>
                         </div>
