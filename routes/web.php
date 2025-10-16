@@ -21,3 +21,4 @@ Route::get('/expired-product', [FrontendController::class, 'expiredproduct'])->n
 Route::get('/stock', [FrontendController::class, 'stock'])->name('stock.page');
 Route::get('/manger', [FrontendController::class, 'manager'])->name('manger.dashboard');
 Route::get('/saleman', [FrontendController::class, 'saleman'])->name('saleman.dashboard');
+Route::get('/category', [FrontendController::class, 'category'])->name('home.category');

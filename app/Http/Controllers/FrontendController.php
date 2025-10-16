@@ -33,8 +33,9 @@ class FrontendController extends Controller
     public function saleman(){
         return view('frontend.saleman.dashboard');
     }
+    public function category(){
+        return view('frontend.category-list');
+    }
 }
 
 
-// <h6 class="fw-medium">{{ Auth::user()->name }}</h6>
-                                    // <p>{{ ucfirst(Auth::user()->role) }}</p>
