@@ -61,4 +61,18 @@ class BrandController extends Controller
 
         return redirect()->back()->with('success', 'Brand updated successfully!');
     }
+
+    public function destroy($id)
+    {
+        $brand = Brand::findOrFail($id);
+
+        // delete logo if exists
+        if ($brand->logo && Storage::disk('public')->exists($brand->logo)) {
+            Storage::disk('public')->delete($brand->logo);
+        }
+
+        $brand->delete();
+
+        return redirect()->back()->with('success', 'Brand deleted successfully!');
+    }
 }

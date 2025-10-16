@@ -26,7 +26,7 @@ Route::get('/saleman', [FrontendController::class, 'saleman'])->name('saleman.da
 Route::get('/category', [FrontendController::class, 'category'])->name('home.category');
 Route::get('/brand', [FrontendController::class, 'brand'])->name('home.brand');
 Route::post('/brand/update', [BrandController::class, 'update'])->name('brand.update');
-
+Route::delete('/brand/delete/{id}', [BrandController::class, 'destroy'])->name('brand.destroy');
 Route::post('/brand/store', [BrandController::class, 'store'])->name('brand.store');
 Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
 Route::put('/category/update', [CategoryController::class, 'update'])->name('category.update');
