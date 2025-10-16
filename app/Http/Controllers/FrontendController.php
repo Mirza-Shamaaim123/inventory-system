@@ -38,6 +38,9 @@ class FrontendController extends Controller
         $categories = Category::orderBy('id', 'desc')->get();
         return view('frontend.category-list', compact('categories'));
     }
+    public function brand(){
+        return view('frontend.brand-list');
+    }
 }
 
 

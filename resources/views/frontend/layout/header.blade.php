@@ -645,7 +645,7 @@
                                 <li><a href="sub-categories.html"><i
                                             class="ti ti-carousel-vertical fs-16 me-2"></i><span>Sub
                                             Category</span></a></li>
-                                <li><a href="brand-list.html"><i
+                                <li><a href="{{ route('home.brand') }}"><i
                                             class="ti ti-triangles fs-16 me-2"></i><span>Brands</span></a></li>
                                 <li><a href="units.html"><i
                                             class="ti ti-brand-unity fs-16 me-2"></i><span>Units</span></a></li>

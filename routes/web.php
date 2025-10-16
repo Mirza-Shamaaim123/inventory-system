@@ -23,6 +23,7 @@ Route::get('/stock', [FrontendController::class, 'stock'])->name('stock.page');
 Route::get('/manger', [FrontendController::class, 'manager'])->name('manger.dashboard');
 Route::get('/saleman', [FrontendController::class, 'saleman'])->name('saleman.dashboard');
 Route::get('/category', [FrontendController::class, 'category'])->name('home.category');
+Route::get('/brand', [FrontendController::class, 'brand'])->name('home.brand'); 
 Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
 Route::put('/category/update', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('/category/destroy', [CategoryController::class, 'destroy'])->name('category.destroy');
