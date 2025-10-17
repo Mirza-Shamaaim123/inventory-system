@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UnitController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
@@ -40,4 +41,5 @@ Route::put('/unit/update/{id}', [UnitController::class, 'update'])->name('unit.u
 Route::delete('/unit/delete/{id}', [UnitController::class, 'destroy'])->name('unit.destroy');
 
 Route::get('/subcategory', [FrontendController::class, 'subcategory'])->name('home.subcategory');
+Route::post('/subcategory/store', [SubCategoryController::class, 'store'])->name('subcategory.store');
 

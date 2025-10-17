@@ -657,7 +657,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="https://dreamspos.dreamstechnologies.com/html/template/sub-categories.html">
+                <form action="{{route('subcategory.store')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="modal-body">
                         <div class="mb-3">
                             <div class="add-image-upload">
@@ -668,7 +669,7 @@
                                 <div class="new-employee-field">
                                     <div class="mb-0">
                                         <div class="image-upload mb-2">
-                                            <input type="file">
+                                            <input type="file" name="image">
                                             <div class="image-uploads">
                                                 <h4 class="fs-13 fw-medium">Upload Image</h4>
                                             </div>
@@ -691,20 +692,20 @@
 
                         <div class="mb-3">
                             <label class="form-label">Sub Category<span class="text-danger ms-1">*</span></label>
-                            <input type="text" class="form-control">
+                            <input type="text" name="name" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Category Code<span class="text-danger ms-1">*</span></label>
-                            <input type="text" class="form-control">
+                            <input type="text" name="code" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Description<span class="text-danger ms-1">*</span></label>
-                            <textarea class="form-control"></textarea>
+                            <textarea class="form-control" name="description"></textarea>
                         </div>
                         <div class="mb-0">
                             <div class="status-toggle modal-status d-flex justify-content-between align-items-center">
                                 <span class="status-label">Status</span>
-                                <input type="checkbox" id="user2" class="check" checked="">
+                                <input type="checkbox" name="status" id="user2" class="check" checked="">
                                 <label for="user2" class="checktoggle"></label>
                             </div>
                         </div>
