@@ -37,4 +37,24 @@ class SubCategoryController extends Controller
 
         return redirect()->back()->with('success', 'SubCategory added successfully!');
     }
+
+    public function update(Request $request, $id)
+    {
+        $subcategory = Subcategory::findOrFail($id);
+
+        $subcategory->name = $request->name;
+        $subcategory->category_id = $request->category_id;
+        $subcategory->code = $request->code;
+        $subcategory->description = $request->description;
+        $subcategory->status = $request->status ? 'Active' : 'Inactive';
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('subcategory', 'public');
+            $subcategory->image = $imagePath;
+        }
+
+        $subcategory->save();
+
+        return redirect()->back()->with('success', 'Subcategory updated successfully!');
+    }
 }

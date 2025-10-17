@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\SubCategory;
 use App\Models\Unit;
 use Illuminate\Http\Request;
 
@@ -50,8 +51,9 @@ class FrontendController extends Controller
     }
     public function subcategory(){
         $categories = Category::where('status', 'Active')->get();
+        $subcategories = SubCategory::with('category')->get();
 
-        return view('frontend.sub-category-list', compact('categories'));
+        return view('frontend.sub-category-list', compact('categories', 'subcategories'));
     }
 }
 

@@ -102,533 +102,73 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/stock-img-01.png" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Laptop</td>
-                                    <td>Computers</td>
-                                    <td>CT001</td>
-                                    <td>Efficient Productivity</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/stock-img-07.png" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Desktop</td>
-                                    <td>Computers</td>
-                                    <td>CT002</td>
-                                    <td>Compact Design</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
+                                @foreach ($subcategories as $subcategory)
+                                    <tr>
+                                        <td>
+                                            <label class="checkboxs">
+                                                <input type="checkbox">
+                                                <span class="checkmarks"></span>
+                                            </label>
+                                        </td>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/stock-img-02.png" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Sneakers</td>
-                                    <td>Shoe</td>
-                                    <td>CT003</td>
-                                    <td>Dynamic Grip</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
+                                        {{-- ✅ Subcategory Image --}}
+                                        <td>
+                                            <a class="avatar avatar-md me-2">
+                                                <img src="{{ asset('storage/' . $subcategory->image) }}" alt="subcategory">
                                             </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
+                                        </td>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/stock-img-08.png" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Formals</td>
-                                    <td>Shoe</td>
-                                    <td>CT004</td>
-                                    <td>Stylish Comfort</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
+                                        {{-- ✅ Subcategory Name --}}
+                                        <td>{{ $subcategory->name }}</td>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/stock-img-06.png" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Wearables</td>
-                                    <td>Electronics</td>
-                                    <td>CT005</td>
-                                    <td>Seamless Connectivity</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
+                                        {{-- ✅ Category Name (relation se) --}}
+                                        <td>{{ $subcategory->category->name ?? '—' }}</td>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/stock-img-04.png" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Speakers</td>
-                                    <td>Electronics</td>
-                                    <td>CT006</td>
-                                    <td>Reliable Sound</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
+                                        {{-- ✅ Code --}}
+                                        <td>{{ $subcategory->code }}</td>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/expire-product-01.png" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Handbags</td>
-                                    <td>Bags</td>
-                                    <td>CT007</td>
-                                    <td>Compact Carry</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
+                                        {{-- ✅ Description --}}
+                                        <td>{{ $subcategory->description }}</td>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/expire-product-04.png" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Travel</td>
-                                    <td>Bags</td>
-                                    <td>CT008</td>
-                                    <td>Travel Ready</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
+                                        {{-- ✅ Status --}}
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/stock-img-05.png" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Sofa</td>
-                                    <td>Furniture</td>
-                                    <td>CT009</td>
-                                    <td>Cozy Comfort</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
+                                        <td>
+                                            <span
+                                                class="badge {{ strtolower($subcategory->status) === 'active' ? 'bg-success' : 'bg-danger' }} fw-medium fs-10">
+                                                {{ ucfirst($subcategory->status) }}
+                                            </span>
+                                        </td>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/expire-product-03.png" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Chair</td>
-                                    <td>Furniture</td>
-                                    <td>CT0010</td>
-                                    <td>Stylish Comfort</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/product4.jpg" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Fruits</td>
-                                    <td>Fruits</td>
-                                    <td>CT004</td>
-                                    <td>Fruits Description</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/product5.jpg" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Accessories</td>
-                                    <td>Accessories</td>
-                                    <td>CT005</td>
-                                    <td>Accessories Description</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/product6.jpg" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Shoes</td>
-                                    <td>Shoes</td>
-                                    <td>CT006</td>
-                                    <td>Shoes Description</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
+                                        {{-- ✅ Action Buttons --}}
+                                        <td class="action-table-data">
+                                            <div class="edit-delete-action">
+                                                <a href="javascript:void(0);" class="p-2 editBtn"
+                                                    data-id="{{ $subcategory->id }}" data-name="{{ $subcategory->name }}"
+                                                    data-category_id="{{ $subcategory->category_id }}"
+                                                    data-code="{{ $subcategory->code }}"
+                                                    data-description="{{ $subcategory->description }}"
+                                                    data-status="{{ $subcategory->status }}"
+                                                    data-image="{{ $subcategory->image }}" data-bs-toggle="modal"
+                                                    data-bs-target="#edit-category">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/product7.jpg" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Fruits</td>
-                                    <td>Fruits</td>
-                                    <td>CT007</td>
-                                    <td>Fruits Description</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/product8.jpg" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Fruits</td>
-                                    <td>Fruits</td>
-                                    <td>CT008</td>
-                                    <td>Fruits Description</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
+                                                <a data-bs-toggle="modal" data-bs-target="#delete-modal"
+                                                    class="p-2 deleteBtn" data-id="{{ $subcategory->id }}"
+                                                    href="javascript:void(0);">
+                                                    <i data-feather="trash-2" class="feather-trash-2"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/product9.jpg" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Computers</td>
-                                    <td>Computers</td>
-                                    <td>CT009</td>
-                                    <td>Computers Description</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a class="avatar avatar-md me-2">
-                                            <img src="assets/img/products/product10.jpg" alt="product">
-                                        </a>
-                                    </td>
-                                    <td>Health Care </td>
-                                    <td>Health Care </td>
-                                    <td>CT0010</td>
-                                    <td>Health Care Description</td>
-                                    <td><span class="badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -657,7 +197,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{route('subcategory.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('subcategory.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
@@ -733,21 +273,26 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="https://dreamspos.dreamstechnologies.com/html/template/sub-categories.html">
+
+                <form id="editSubcategoryForm" method="POST"  enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
                     <div class="modal-body">
                         <div class="mb-3">
                             <div class="add-image-upload">
                                 <div class="add-image p-1 border-solid">
-
-                                    <img src="assets/img/products/laptop.png" alt="image">
-                                    <a href="javascript:void(0);"><i data-feather="x"
-                                            class="x-square-add image-close remove-product fs-12 text-white bg-danger rounded-1"></i></a>
-
+                                    <img id="edit_image_preview" src="{{ asset('assets/img/products/laptop.png') }}"
+                                        alt="image">
+                                    <a href="javascript:void(0);">
+                                        <i data-feather="x"
+                                            class="x-square-add image-close remove-product fs-12 text-white bg-danger rounded-1"></i>
+                                    </a>
                                 </div>
+
                                 <div class="new-employee-field">
                                     <div class="mb-0">
                                         <div class="image-upload mb-2">
-                                            <input type="file">
+                                            <input type="file" name="image" id="edit_image">
                                             <div class="image-uploads">
                                                 <h4 class="fs-13 fw-medium">Change Image</h4>
                                             </div>
@@ -757,9 +302,10 @@
                                 </div>
                             </div>
                         </div>
-                         <div class="mb-3">
+
+                        <div class="mb-3">
                             <label class="form-label">Category <span class="text-danger ms-1">*</span></label>
-                            <select class="form-control" name="category_id" required>
+                            <select class="form-control" name="category_id" id="edit_category_id" required>
                                 <option value="">Select</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -767,30 +313,30 @@
                             </select>
                         </div>
 
-
-
-
-
                         <div class="mb-3">
                             <label class="form-label">Sub Category<span class="text-danger ms-1">*</span></label>
-                            <input type="text" class="form-control" value="Laptop">
+                            <input type="text" class="form-control" name="name" id="edit_name">
                         </div>
+
                         <div class="mb-3">
                             <label class="form-label">Category Code<span class="text-danger ms-1">*</span></label>
-                            <input type="text" class="form-control" value="CT001">
+                            <input type="text" name="code" class="form-control" id="edit_code">
                         </div>
+
                         <div class="mb-3">
                             <label class="form-label">Description<span class="text-danger ms-1">*</span></label>
-                            <textarea class="form-control">Efficient Productivity</textarea>
+                            <textarea class="form-control" name="description" id="edit_description"></textarea>
                         </div>
+
                         <div class="mb-0">
                             <div class="status-toggle modal-status d-flex justify-content-between align-items-center">
                                 <span class="status-label">Status</span>
-                                <input type="checkbox" id="user3" class="check" checked="">
-                                <label for="user3" class="checktoggle"></label>
+                                <input type="checkbox" name="status" id="edit_status" class="check">
+                                <label for="edit_status" class="checktoggle"></label>
                             </div>
                         </div>
                     </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn me-2 btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary">Save Changes</button>
@@ -799,6 +345,8 @@
             </div>
         </div>
     </div>
+
+
     <!-- /Edit Category -->
     <!-- delete modal -->
     <div class="modal fade" id="delete-modal">
@@ -820,4 +368,44 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const editButtons = document.querySelectorAll('.editBtn');
+            const editForm = document.getElementById('editSubcategoryForm');
+            const previewImg = document.getElementById('edit_image_preview');
+
+            editButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Get values from data attributes
+                    const id = this.dataset.id;
+                    const name = this.dataset.name;
+                    const categoryId = this.dataset.category_id;
+                    const code = this.dataset.code;
+                    const description = this.dataset.description;
+                    const status = this.dataset.status;
+                    const image = this.dataset.image;
+
+                    // ✅ Set form action dynamically
+                    editForm.action = `/subcategory/update/${id}`;
+
+                    // Fill form fields
+                    document.getElementById('edit_name').value = name;
+                    document.getElementById('edit_category_id').value = categoryId;
+                    document.getElementById('edit_code').value = code;
+                    document.getElementById('edit_description').value = description;
+                    document.getElementById('edit_status').checked = (status.toLowerCase() ===
+                        'active');
+
+                    // Image preview
+                    if (image) {
+                        previewImg.src = `/storage/${image}`;
+                    } else {
+                        previewImg.src = "{{ asset('assets/img/products/laptop.png') }}";
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
