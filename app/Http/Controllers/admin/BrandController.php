@@ -45,22 +45,28 @@ class BrandController extends Controller
         $brand->name = $request->name;
         $brand->status = $request->has('status') ? 'active' : 'inactive';
 
-        // Update logo if new file uploaded
+        // Handle logo upload
         if ($request->hasFile('logo')) {
+            // Delete old logo if exists
             if ($brand->logo && Storage::disk('public')->exists($brand->logo)) {
                 Storage::disk('public')->delete($brand->logo);
             }
             $brand->logo = $request->file('logo')->store('brands', 'public');
         }
-        if (!$request->hasFile('logo') && empty($request->logo)) {
+
+        // Handle logo removal
+        if ($request->remove_logo === 'true') {
+            if ($brand->logo && Storage::disk('public')->exists($brand->logo)) {
+                Storage::disk('public')->delete($brand->logo);
+            }
             $brand->logo = null;
         }
-
 
         $brand->save();
 
         return redirect()->back()->with('success', 'Brand updated successfully!');
     }
+
 
     public function destroy($id)
     {

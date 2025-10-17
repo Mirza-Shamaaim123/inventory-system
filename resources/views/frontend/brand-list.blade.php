@@ -225,6 +225,7 @@
                 <form action="{{ route('brand.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id" id="edit_id">
+                    <input type="hidden" name="remove_logo" id="remove_logo_input" value="false">
 
                     <div class="modal-body new-employee-field">
                         <div class="profile-pic-upload mb-3">
@@ -307,43 +308,42 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Jab koi edit button click ho
+            // Edit button click
             document.querySelectorAll('.editBrandBtn').forEach(btn => {
                 btn.addEventListener('click', function() {
-                    // Hidden ID
                     const idInput = document.getElementById('edit_id');
                     const nameInput = document.getElementById('edit_name');
                     const statusInput = document.getElementById('edit_status');
                     const logoPreview = document.getElementById('edit_logo_preview');
+                    const removeInput = document.getElementById('remove_logo_input');
 
-                    if (idInput) idInput.value = this.dataset.id || '';
-                    if (nameInput) nameInput.value = this.dataset.name || '';
-                    if (statusInput) statusInput.checked = this.dataset.status === 'active';
+                    idInput.value = this.dataset.id || '';
+                    nameInput.value = this.dataset.name || '';
+                    statusInput.checked = this.dataset.status === 'active';
 
-                    if (logoPreview) {
-                        if (this.dataset.logo && this.dataset.logo.trim() !== '') {
-                            logoPreview.src = this.dataset.logo;
-                            logoPreview.style.display = 'block';
-                        } else {
-                            logoPreview.style.display = 'none';
-                        }
+                    if (this.dataset.logo && this.dataset.logo.trim() !== '') {
+                        logoPreview.src = this.dataset.logo;
+                        logoPreview.style.display = 'block';
+                    } else {
+                        logoPreview.style.display = 'none';
                     }
+
+                    removeInput.value = 'false'; // reset remove flag on open
                 });
             });
 
-            // Remove image (cross button)
+            // Remove image
             const removeBtn = document.getElementById('remove_logo');
-            if (removeBtn) {
-                removeBtn.addEventListener('click', function() {
-                    const logoPreview = document.getElementById('edit_logo_preview');
-                    const logoInput = document.getElementById('edit_logo_input');
-                    if (logoPreview) {
-                        logoPreview.src = '';
-                        logoPreview.style.display = 'none';
-                    }
-                    if (logoInput) logoInput.value = '';
-                });
-            }
+            removeBtn.addEventListener('click', function() {
+                const logoPreview = document.getElementById('edit_logo_preview');
+                const logoInput = document.getElementById('edit_logo_input');
+                const removeInput = document.getElementById('remove_logo_input');
+
+                logoPreview.src = '';
+                logoPreview.style.display = 'none';
+                logoInput.value = '';
+                removeInput.value = 'true'; // mark for deletion
+            });
         });
     </script>
 
