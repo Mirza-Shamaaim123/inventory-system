@@ -605,4 +605,26 @@
 				<p>Designed &amp; Developed by <a href="javascript:void(0);" class="text-primary">Dreams</a></p>
 			</div>
 		</div>
+
+		<!-- Make sure jQuery and Summernote JS are loaded -->
+<script>
+$(document).ready(function() {
+    $('.pages-editor').summernote({
+        placeholder: 'Write product description here...',
+        height: 150,
+        toolbar: [
+          ['style', ['bold', 'italic', 'underline', 'clear']],
+          ['font', ['strikethrough', 'superscript', 'subscript']],
+          ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+    });
+});
+</script>
+
+
+
 @endsection

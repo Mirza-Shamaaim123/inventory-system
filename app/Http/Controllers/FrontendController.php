@@ -43,6 +43,9 @@ class FrontendController extends Controller
           $brands = Brand::latest()->get();
         return view('frontend.brand-list', compact('brands'));
     }
+    public function unit(){
+        return view('frontend.unit-list');
+    }
 }
 
 

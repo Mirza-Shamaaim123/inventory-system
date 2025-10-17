@@ -647,7 +647,7 @@
                                             Category</span></a></li>
                                 <li><a href="{{ route('home.brand') }}"><i
                                             class="ti ti-triangles fs-16 me-2"></i><span>Brands</span></a></li>
-                                <li><a href="units.html"><i
+                                <li><a href="{{ route('home.unit') }}"><i
                                             class="ti ti-brand-unity fs-16 me-2"></i><span>Units</span></a></li>
                                 <li><a href="varriant-attributes.html"><i
                                             class="ti ti-checklist fs-16 me-2"></i><span>Variant Attributes</span></a>
