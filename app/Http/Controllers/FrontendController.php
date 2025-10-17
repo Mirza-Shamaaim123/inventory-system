@@ -48,6 +48,11 @@ class FrontendController extends Controller
          $units = Unit::all(); // ya paginate() bhi use kar sakte ho
         return view('frontend.unit-list', compact('units'));
     }
+    public function subcategory(){
+        $categories = Category::where('status', 'Active')->get();
+
+        return view('frontend.sub-category-list', compact('categories'));
+    }
 }
 
 

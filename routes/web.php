@@ -39,3 +39,5 @@ Route::post('/unit/store', [UnitController::class, 'store'])->name('unit.store')
 Route::put('/unit/update/{id}', [UnitController::class, 'update'])->name('unit.update');
 Route::delete('/unit/delete/{id}', [UnitController::class, 'destroy'])->name('unit.destroy');
 
+Route::get('/subcategory', [FrontendController::class, 'subcategory'])->name('home.subcategory');
+
