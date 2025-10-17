@@ -103,10 +103,14 @@
                                         </td>
                                         <td class="action-table-data">
                                             <div class="edit-delete-action">
-                                                <a class="me-2 p-2" href="#" data-bs-toggle="modal"
+                                                <a href="javascript:void(0);" class="me-2 p-2 editBtn"
+                                                    data-id="{{ $unit->id }}" data-name="{{ $unit->name }}"
+                                                    data-short_name="{{ $unit->short_name }}"
+                                                    data-status="{{ $unit->status }}" data-bs-toggle="modal"
                                                     data-bs-target="#edit-units">
                                                     <i data-feather="edit" class="feather-edit"></i>
                                                 </a>
+
                                                 <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
                                                     href="javascript:void(0);">
                                                     <i data-feather="trash-2" class="feather-trash-2"></i>
@@ -117,214 +121,6 @@
                                 @endforeach
                             </tbody>
 
-                            {{-- <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-gray-9">Liters</td>
-                                    <td>L</td>
-                                    <td>18</td>
-                                    <td>10 Dec 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-units">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-gray-9">Dozen</td>
-                                    <td>dz</td>
-                                    <td>30</td>
-                                    <td>27 Nov 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-units">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-gray-9">Pieces</td>
-                                    <td>pcs</td>
-                                    <td>42</td>
-                                    <td>18 Nov 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-units">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-gray-9">Boxes</td>
-                                    <td>bx</td>
-                                    <td>60</td>
-                                    <td>06 Nov 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-units">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-gray-9">Tons</td>
-                                    <td>t</td>
-                                    <td>10</td>
-                                    <td>25 Oct 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-units">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-gray-9">Grams</td>
-                                    <td>g</td>
-                                    <td>70</td>
-                                    <td>03 Oct 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-units">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-gray-9">Meters</td>
-                                    <td>m</td>
-                                    <td>80</td>
-                                    <td>20 Sep 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-units">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-gray-9">Centimeters</td>
-                                    <td>cm</td>
-                                    <td>120</td>
-                                    <td>10 Sep 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-units">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-                                </tr> --}}
 
                         </table>
                     </div>
@@ -387,29 +183,27 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="page-title">
-                        <h4>Edit Unit</h4>
-                    </div>
-                    <button type="button" class="close bg-danger text-white fs-16" data-bs-dismiss="modal"
-                        aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h4>Edit Unit</h4>
+                    <button type="button" class="close bg-danger text-white fs-16"
+                        data-bs-dismiss="modal">&times;</button>
                 </div>
-                <form action="https://dreamspos.dreamstechnologies.com/html/template/units.html">
+                <form id="editUnitForm" method="POST" >
+                    @csrf
+                    @method('PUT')
                     <div class="modal-body">
                         <div class="mb-3">
                             <label class="form-label">Unit<span class="text-danger ms-1">*</span></label>
-                            <input type="text" class="form-control" value="Kilograms">
+                            <input type="text" class="form-control" name="name" id="edit_name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Short Name<span class="text-danger ms-1">*</span></label>
-                            <input type="text" class="form-control" value="kg">
+                            <input type="text" class="form-control" name="short_name" id="edit_short_name">
                         </div>
                         <div class="mb-0">
                             <div class="status-toggle modal-status d-flex justify-content-between align-items-center">
                                 <span class="status-label">Status</span>
-                                <input type="checkbox" id="user3" class="check" checked="">
-                                <label for="user3" class="checktoggle"></label>
+                                <input type="checkbox" name="status" id="edit_status" class="check">
+                                <label for="edit_status" class="checktoggle"></label>
                             </div>
                         </div>
                     </div>
@@ -421,6 +215,7 @@
             </div>
         </div>
     </div>
+
     <!-- /Edit Unit -->
 
     <!-- delete modal -->
@@ -443,4 +238,32 @@
             </div>
         </div>
     </div>
+
+
+    {{-- Edit Model JS --}}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const editButtons = document.querySelectorAll('.editBtn');
+            const editForm = document.getElementById('editUnitForm');
+
+            editButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    const name = this.dataset.name;
+                    const shortName = this.dataset.short_name;
+                    const status = this.dataset.status;
+
+                    // Fill inputs
+                    document.getElementById('edit_name').value = name;
+                    document.getElementById('edit_short_name').value = shortName;
+                    document.getElementById('edit_status').checked = (status === 'active');
+
+                    editForm.action = "{{ url('unit/update') }}/" + id;
+
+                    
+                });
+            });
+        });
+    </script>
 @endsection
