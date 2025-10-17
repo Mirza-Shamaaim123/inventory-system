@@ -163,6 +163,7 @@
                                                     href="javascript:void(0);">
                                                     <i data-feather="trash-2" class="feather-trash-2"></i>
                                                 </a>
+
                                             </div>
                                         </td>
                                     </tr>
@@ -274,7 +275,7 @@
                     </button>
                 </div>
 
-                <form id="editSubcategoryForm" method="POST"  enctype="multipart/form-data">
+                <form id="editSubcategoryForm" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="modal-body">
@@ -354,21 +355,46 @@
             <div class="modal-content">
                 <div class="page-wrapper-new p-0">
                     <div class="content p-5 px-3 text-center">
-                        <span class="rounded-circle d-inline-flex p-2 bg-danger-transparent mb-2"><i
-                                class="ti ti-trash fs-24 text-danger"></i></span>
+                        <span class="rounded-circle d-inline-flex p-2 bg-danger-transparent mb-2">
+                            <i class="ti ti-trash fs-24 text-danger"></i>
+                        </span>
                         <h4 class="fs-20 fw-bold mb-2 mt-1">Delete Sub Category</h4>
-                        <p class="mb-0 fs-16">Are you sure you want to delete sub category?</p>
-                        <div class="modal-footer-btn mt-3 d-flex justify-content-center">
-                            <button type="button" class="btn me-2 btn-secondary fs-13 fw-medium p-2 px-3 shadow-none"
-                                data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary fs-13 fw-medium p-2 px-3">Yes Delete</button>
-                        </div>
+                        <p class="mb-0 fs-16">Are you sure you want to delete this subcategory?</p>
+
+                        <form id="deleteSubcategoryForm" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <div class="modal-footer-btn mt-3 d-flex justify-content-center">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Yes Delete</button>
+                            </div>
+                        </form>
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {{-- Delete Modal js --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteButtons = document.querySelectorAll('.deleteBtn');
+            const deleteForm = document.getElementById('deleteSubcategoryForm');
 
+            deleteButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    deleteForm.action = `/subcategory/delete/${id}`; // dynamic URL
+                });
+            });
+        });
+    </script>
+
+
+
+
+    {{-- Edit Modal js --}}
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

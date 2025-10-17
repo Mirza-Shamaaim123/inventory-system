@@ -57,4 +57,12 @@ class SubCategoryController extends Controller
 
         return redirect()->back()->with('success', 'Subcategory updated successfully!');
     }
+    public function destroy($id)
+{
+    $subcategory = Subcategory::findOrFail($id);
+    $subcategory->delete();
+
+    return redirect()->back()->with('success', 'Subcategory deleted successfully!');
+}
+
 }
