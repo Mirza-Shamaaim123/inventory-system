@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -44,7 +45,8 @@ class FrontendController extends Controller
         return view('frontend.brand-list', compact('brands'));
     }
     public function unit(){
-        return view('frontend.unit-list');
+         $units = Unit::all(); // ya paginate() bhi use kar sakte ho
+        return view('frontend.unit-list', compact('units'));
     }
 }
 

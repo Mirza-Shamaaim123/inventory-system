@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\UnitController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,4 +35,5 @@ Route::put('/category/update', [CategoryController::class, 'update'])->name('cat
 Route::delete('/category/destroy', [CategoryController::class, 'destroy'])->name('category.destroy');
 
 Route::get('/unit', [FrontendController::class, 'unit'])->name('home.unit');
+Route::post('/unit/store', [UnitController::class, 'store'])->name('unit.store');
 

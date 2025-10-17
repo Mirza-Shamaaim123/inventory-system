@@ -35,9 +35,12 @@
 
             <div class="card">
                 <div class="card-header d-flex align-items-center justify-content-between flex-wrap row-gap-3">
-                    <div class="search-set">
-                        <div class="search-input">
-                            <span class="btn-searchset"><i class="ti ti-search fs-14 feather-search"></i></span>
+                    <div class="btn-search-set">
+                        <div class="search-input position-relative">
+                            <span class="btn-searchset position-absolute top-50 translate-middle-y ms-2">
+                                <i class="ti ti-search fs-14 feather-search"></i>
+                            </span>
+                            <input type="text" class="form-control ps-5" placeholder="Search here...">
                         </div>
                     </div>
                     <div class="table-dropdown my-xl-auto right-content">
@@ -77,34 +80,44 @@
                                     <th class="no-sort"></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-gray-9">Kilograms</td>
-                                    <td>kg</td>
-                                    <td>25</td>
-                                    <td>24 Dec 2024</td>
-                                    <td><span class="badge table-badge bg-success fw-medium fs-10">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-units">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
-                                                href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
 
-                                    </td>
-                                </tr>
-                                <tr>
+                            <tbody>
+                                @foreach ($units as $unit)
+                                    <tr>
+                                        <td>
+                                            <label class="checkboxs">
+                                                <input type="checkbox" value="{{ $unit->id }}">
+                                                <span class="checkmarks"></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-gray-9">{{ $unit->name }}</td>
+                                        <td>{{ $unit->short_name }}</td>
+                                        <td>{{ $unit->id }}</td> {{-- yahan 25 ke jagah kuch aur show karna hai to change kar lo --}}
+                                        <td>{{ $unit->created_at->format('d M Y') }}</td>
+                                        <td>
+                                            @if ($unit->status === 'active')
+                                                <span class="badge table-badge bg-success fw-medium fs-10">Active</span>
+                                            @else
+                                                <span class="badge table-badge bg-danger fw-medium fs-10">Inactive</span>
+                                            @endif
+                                        </td>
+                                        <td class="action-table-data">
+                                            <div class="edit-delete-action">
+                                                <a class="me-2 p-2" href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#edit-units">
+                                                    <i data-feather="edit" class="feather-edit"></i>
+                                                </a>
+                                                <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="p-2"
+                                                    href="javascript:void(0);">
+                                                    <i data-feather="trash-2" class="feather-trash-2"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+
+                            {{-- <tr>
                                     <td>
                                         <label class="checkboxs">
                                             <input type="checkbox">
@@ -311,8 +324,8 @@
                                         </div>
 
                                     </td>
-                                </tr>
-                            </tbody>
+                                </tr> --}}
+
                         </table>
                     </div>
                 </div>
@@ -340,20 +353,21 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="https://dreamspos.dreamstechnologies.com/html/template/units.html">
+                <form action="{{ route('unit.store') }}" method="POST">
+                    @csrf
                     <div class="modal-body">
                         <div class="mb-3">
                             <label class="form-label">Unit<span class="text-danger ms-1">*</span></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Short Name<span class="text-danger ms-1">*</span></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="short_name">
                         </div>
                         <div class="mb-0">
                             <div class="status-toggle modal-status d-flex justify-content-between align-items-center">
                                 <span class="status-label">Status</span>
-                                <input type="checkbox" id="user2" class="check" checked="">
+                                <input type="checkbox" name="status" id="user2" class="check" checked="">
                                 <label for="user2" class="checktoggle"></label>
                             </div>
                         </div>
